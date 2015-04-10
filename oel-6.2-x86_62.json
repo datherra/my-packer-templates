@@ -1,4 +1,7 @@
 {
+  "variables": {
+    "iso": "https://s3-ap-southeast-2.amazonaws.com/ourvagrantboxes/oel62_32bits_V29609-01.iso"
+  },
   "builders": [{
     "type": "virtualbox-iso",
     "virtualbox_version_file": ".vbox_version",
@@ -7,9 +10,9 @@
     "guest_os_type": "RedHat",
     "disk_size": 40960,
 
-    "iso_url": "file:///H:/softwares/oracle/V29609-01_OEL_62_32bits.iso",
+    "iso_url": "{{user `iso`}}",
     "iso_checksum": "6cf55c8fc5ce6a54abaec9e3b3cdf4f4",
-    "iso_checksum_type": "none",
+    "iso_checksum_type": "md5",
 
     "boot_command": [
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/oel-6.2-x86_32/ks.cfg<enter><wait>"
