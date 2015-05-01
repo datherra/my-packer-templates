@@ -1,0 +1,14 @@
+{
+  "builders":[{
+  "type": "amazon-ebs",
+  "region": "ap-southeast-2",
+  "source_ami": "ami-5d99e567",
+  "instance_type": "t2.micro",
+  "ssh_username": "centos",
+  "ami_name": "packer-quick-start {{timestamp}}"
+  }],
+  "post-processors": [{
+      "output": "build/centos-7.0-x86_64-aws.box",
+      "type": "vagrant"
+  }]
+}
