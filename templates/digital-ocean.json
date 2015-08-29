@@ -4,5 +4,9 @@
     "region": "sgp1",
     "size": "512mb",
     "image": "centos-7-0-x64"
+  }],
+  "post-processors": [{
+    "output": "build/centos-7.0-x86_64-digitalocean.box",
+    "type": "vagrant"
   }]
 }
