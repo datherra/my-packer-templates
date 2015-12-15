@@ -5,7 +5,6 @@
       "headless": false,
 
       "guest_os_type": "RedHat_64",
-      "disk_size": 40960,
 
       "iso_url": "http://mirror.optus.net/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso",
       "iso_checksum": "7c1e34e95c991175290d704dbdcc6531774cbecb",
@@ -31,10 +30,6 @@
 
       "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p"
   }],
-  "post-processors": [{
-      "output": "build/centos-7.0-x86_64.box",
-      "type": "vagrant"
-  }],
   "provisioners": [{
       "type": "shell",
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
@@ -43,5 +38,23 @@
           "scripts/vboxguest.sh",
           "scripts/compact.sh"
       ]
-  }]
+  }],
+  "push": {
+      "base_dir": "../.",
+      "vcs": true
+  },
+  "post-processors": [[{
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "output": "build/centos-7.0-x86_64.box"
+  },{
+      "type": "atlas",
+      "token": "{{user `atlas_token`}}",
+      "artifact": "datherra/mycentos",
+      "artifact_type": "vagrant.box",
+      "only": ["virtualbox-iso"],
+      "metadata": {
+          "provider": "virtualbox"
+      }
+  }]]
 }
