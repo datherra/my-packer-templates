@@ -1,3 +1,4 @@
+* shell provisioner from Vagrantfile should come here on packer template
 The `centos-7-x86_64-aws.box` file is just a result of:
 `tar zcvf centos-7-x86_64-aws.box metadata.json Vagrantfle`
 
