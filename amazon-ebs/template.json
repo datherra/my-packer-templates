@@ -1,8 +1,8 @@
 {
   "builders":[{
     "type": "amazon-ebs",
-    "region": "ap-southeast-2",
-    "source_ami": "ami-bd523087",
+    "region": "us-west-2",
+    "source_ami": "ami-d440a6e7",
     "instance_type": "t2.small",
     "ssh_username": "centos",
     "ssh_pty": true,

@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.provider "aws" do |aws|
     
-	aws.region_config "ap-southeast-2", ami: "ami-bd523087"
+	aws.region_config "us-west-2", ami: "ami-bd523087"
 	
   end
 end
