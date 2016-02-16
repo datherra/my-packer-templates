@@ -6,12 +6,12 @@
 
       "guest_os_type": "RedHat_64",
 
-      "iso_url": "http://mirror.optus.net/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso",
-      "iso_checksum": "7c1e34e95c991175290d704dbdcc6531774cbecb",
+      "iso_url": "http://mirrors.kernel.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso",
+      "iso_checksum": "783eef50e1fb91c78901d0421d8114a29b998478",
       "iso_checksum_type": "sha1",
 
       "boot_command": [
-          "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/CentOS-7-x86_64-Minimal-1503-01/ks.cfg<enter><wait>"
+          "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/CentOS-7-x86_64-Minimal/ks.cfg<enter><wait>"
       ],
       "boot_wait": "12s",
 
@@ -41,7 +41,8 @@
   }],
   "push": {
       "base_dir": "../.",
-      "vcs": true
+      "vcs": true,
+      "name": "devopslabs/centos-7.0-x86_64"
   },
   "post-processors": [[{
       "type": "vagrant",
@@ -50,7 +51,7 @@
   },{
       "type": "atlas",
       "token": "{{user `atlas_token`}}",
-      "artifact": "datherra/mycentos",
+      "artifact": "devopslabs/centos-7.0-x86_64",
       "artifact_type": "vagrant.box",
       "only": ["virtualbox-iso"],
       "metadata": {
